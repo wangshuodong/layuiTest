@@ -8,8 +8,8 @@
     <title>AdminLTE 2 | Blank Page</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="${staticPath }/layui/css/layui.css">
     <%@ include file="../shared/importCss.jsp" %>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -24,7 +24,6 @@
 
 <!-- Main content -->
 <section class="content">
-
     <!-- Default box -->
     <div class="box">
         <div class="box-header with-border">
@@ -49,7 +48,8 @@
                         <input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">
                     </div>
                     <div class="layui-input-inline">
-                        <input type="text" name="number" lay-verify="required|number" autocomplete="off" class="layui-input">
+                        <input type="text" name="number" lay-verify="required|number" autocomplete="off"
+                               class="layui-input">
                     </div>
                     <div class="layui-input-inline">
                         <select name="city" lay-verify="required">
@@ -106,9 +106,32 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">用户列表</h3>
+            <div class="pull-right box-tools">
+                <!-- button with a dropdown -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm dropdown-toggle"
+                            data-toggle="dropdown">
+                        <i class="fa fa-bars"></i></button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li><a href="#">Add new event</a></li>
+                        <li><a href="#">Clear events</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">View calendar</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-sm" data-widget="collapse"><i
+                        class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-sm" data-widget="remove"><i
+                        class="fa fa-times"></i>
+                </button>
+            </div>
         </div>
         <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
+        <div class="box-body">
+            sdasfg
+        </div>
+        <div class="box-footer">
             <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                 <ul class="layui-tab-title">
                     <li class="layui-this">所有</li>
@@ -117,68 +140,24 @@
                     <li>已收款</li>
                     <li>未收款</li>
                 </ul>
-                <div class="layui-tab-content">
-                    <table class="table table-bordered table-hover">
+                <div class="layui-tab-content no-padding">
+                    <table class="layui-table"
+                           lay-data="{url:'${staticPath }/commons/json/demo2.json?v=2', page: true, limit: 6, limits:[6]}">
+                        <thead>
                         <tr>
-                            <th style="width: 10px">#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style="width: 40px">Label</th>
+                            <th lay-data="{field:'username', width:150}" rowspan="2">联系人</th>
+                            <th lay-data="{align:'center'}" colspan="3">地址</th>
+                            <th lay-data="{field:'amount', width:120}" rowspan="2">金额</th>
                         </tr>
                         <tr>
-                            <td>1.</td>
-                            <td>Update software</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-red">55%</span></td>
+                            <th lay-data="{field:'province', width:120}">省</th>
+                            <th lay-data="{field:'city', width:120}">市</th>
+                            <th lay-data="{field:'zone', width:200}">区</th>
                         </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Clean database</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-yellow">70%</span></td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td>Cron job running</td>
-                            <td>
-                                <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-light-blue">30%</span></td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td>Fix and squish bugs</td>
-                            <td>
-                                <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-green">90%</span></td>
-                        </tr>
+                        </thead>
                     </table>
                 </div>
             </div>
-
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
         </div>
     </div>
 
@@ -189,13 +168,14 @@
 <script>
     layui.config({
         dir: '${staticPath }/layui/' //layui.js 所在路径（注意，如果是script单独引入layui.js，无需设定该参数。），一般情况下可以无视
-        ,version: false //一般用于更新模块缓存，默认不开启。设为true即让浏览器不缓存。也可以设为一个固定的值，如：201610
-        ,debug: false //用于开启调试模式，默认false，如果设为true，则JS模块的节点会保留在页面
-        ,base: '${staticPath }/commons/js/' //设定扩展的Layui模块的所在目录，一般用于外部模块扩展
+        , version: false //一般用于更新模块缓存，默认不开启。设为true即让浏览器不缓存。也可以设为一个固定的值，如：201610
+        , debug: false //用于开启调试模式，默认false，如果设为true，则JS模块的节点会保留在页面
+        , base: '${staticPath }/commons/js/' //设定扩展的Layui模块的所在目录，一般用于外部模块扩展
     });
-    layui.use(['form', 'element', 'laydate'], function() {
+    layui.use(['form', 'element', 'laydate', 'table'], function () {
         var form = layui.form,
-            element = layui.element;
+            element = layui.element,
+            table = layui.table;
     })
 </script>
 </body>

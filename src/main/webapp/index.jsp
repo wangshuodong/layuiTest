@@ -18,10 +18,10 @@
         <!-- Logo -->
         <a href="javascript:;" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>Y</b>HW</span>
+            <span class="logo-mini"><img src="${staticPath }/commons/img/yhw.jpg" class="mylogoimg"></span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg">
-                <img src="${staticPath }/commons/img/zhifubao.jpg" class="mylogoimg">
+                <img src="${staticPath }/commons/img/yhw.jpg" class="mylogoimg">
                 <b>物业管理系统</b>
             </span>
         </a>
@@ -105,7 +105,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">系统菜单</li>
-                <li><a href="${path }/pages/list.jsp" class="myselect"><i class="fa fa-desktop text-lime"></i> <span>系统首页</span></a></li>
+                <li><a href="${path }/pages/welcome.jsp" class="myselect"><i class="fa fa-desktop text-lime"></i> <span>系统首页</span></a></li>
                 <li class="treeview">
                     <a href="javascript:;">
                         <i class="fa fa-cloud"></i> <span>服务商管理</span>
@@ -114,7 +114,7 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="javascript:;">我的服务商</a></li>
+                        <li><a href="${path }/pages/list.jsp">我的服务商</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -189,7 +189,7 @@
     <!-- =============================================== -->
 
     <div class="content-wrapper" id="main-content">
-        <%@ include file="pages/list.jsp" %>
+        <%@ include file="pages/welcome.jsp" %>
     </div>
 
     <footer class="main-footer">

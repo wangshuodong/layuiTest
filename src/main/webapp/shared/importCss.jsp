@@ -4,6 +4,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+<link rel="stylesheet" href="${staticPath }/layui/css/layui.css">
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="${staticPath}/adminLTE/bootstrap/css/bootstrap.min.css">
 <!-- Font Awesome -->
