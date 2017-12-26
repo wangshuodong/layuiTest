@@ -4,122 +4,250 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>layui开发使用文档 - 入门指南</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-
-    <link rel="stylesheet" href="${staticPath }/layui/css/layui.css">
-    <link rel="stylesheet" href="${staticPath }/commons/css/global.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>系统首页</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <%@ include file="shared/importCss.jsp" %>
 </head>
-<body>
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header header header-demo">
-        <div class="layui-main">
-            <a class="logo" href="/">
-                <img src="commons/img/logo.png" alt="layui">
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="javascript:;" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>Y</b>HW</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg">
+                <img src="${staticPath }/commons/img/zhifubao.jpg" class="mylogoimg">
+                <b>物业管理系统</b>
+            </span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="javascript:;" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </a>
 
-            <ul class="layui-nav">
-                <li class="layui-nav-item ">
-                    <a href="/doc/">文档<!-- <span class="layui-badge-dot"></span> --></a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="${staticPath }/commons/img/admin.png" class="user-image" alt="User Image">
+                            <span class="hidden-xs">管理员</span>
+                        </a>
+                        <ul class="dropdown-menu" style="width: 200px;">
+                            <!-- User image -->
+                            <li class="user-header" style="height: 120px;">
+                                <img src="${staticPath }/commons/img/admin.png" class="img-circle" alt="User Image">
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                                <div class="row">
+                                    <div class="col-xs-6 text-center">
+                                        <a href="javascript:;">个人信息</a>
+                                    </div>
+                                    <div class="col-xs-6 text-center">
+                                        <a href="javascript:;">修改密码</a>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="javascript:;" class="btn btn-default btn-flat">锁屏</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="javascript:;" class="btn btn-default btn-flat">退出</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/logout" class="dropdown-toggle" data-toggle="tooltip" title="退出"
+                           data-placement="bottom">
+                            <i class="fa fa-sign-out"></i>
+                        </a>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="javascript:;" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =============================================== -->
+
+    <!-- Left side column. contains the sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="${staticPath }/commons/img/admin.png" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>管理员</p>
+                    <a href="javascript:;"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">系统菜单</li>
+                <li><a href="${path }/pages/list.jsp" class="myselect"><i class="fa fa-desktop text-lime"></i> <span>系统首页</span></a></li>
+                <li class="treeview">
+                    <a href="javascript:;">
+                        <i class="fa fa-cloud"></i> <span>服务商管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="javascript:;">我的服务商</a></li>
+                    </ul>
                 </li>
-                <li class="layui-nav-item layui-this">
-                    <a href="/demo/">示例<!--  --></a>
+                <li class="treeview">
+                    <a href="javascript:;">
+                        <i class="fa fa-snowflake-o"></i> <span>物业管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="javascript:;">我的物业</a></li>
+                    </ul>
                 </li>
-                <li class="layui-nav-item layui-hide-xs">
-                    <a href="http://fly.layui.com/" target="_blank">社区</a>
+                <li class="treeview">
+                    <a href="javascript:;">
+                        <i class="fa fa-bank"></i> <span>小区管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="javascript:;">我的小区</a></li>
+                        <li><a href="javascript:;">房屋信息</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="javascript:;">
+                        <i class="fa fa-bar-chart-o"></i> <span>账单管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="javascript:;">我的账单</a></li>
+                        <li><a href="javascript:;">电子发票</a></li>
+                        <li><a href="javascript:;">交易中心</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="javascript:;">
+                        <i class="fa fa-user-circle-o"></i> <span>用户管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="javascript:;">用户中心</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="javascript:;">
+                        <i class="fa fa-gears"></i> <span>系统设置</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="javascript:;">角色管理</a></li>
+                        <li><a href="javascript:;">费用类型</a></li>
+                    </ul>
                 </li>
 
-                <li class="layui-nav-item">
-                    <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
-                    <a href="javascript:;">admin</a>
-                    <dl class="layui-nav-child">
-                        <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
-                        <dd><a href="http://layim.layui.com/" target="_blank">用户信息</a></dd>
-                        <dd><a href="/template/fly/" target="_blank">修改密码<span class="layui-badge-dot"></span></a></dd>
-                        <hr>
-                        <dd><a href="/alone.html" target="_blank">锁屏</a></dd>
-                        <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">注销</a></dd>
-                    </dl>
-                </li>
+
+                <li class="header">个人中心</li>
+                <li><a href="${path }/form.jsp" class="myselect"><i class="fa fa-circle-o text-red"></i> <span>个人信息</span></a></li>
+                <li><a href="${path }/test.jsp" class="myselect"><i class="fa fa-circle-o text-yellow"></i> <span>修改密码</span></a></li>
             </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- =============================================== -->
+
+    <div class="content-wrapper" id="main-content">
+        <%@ include file="pages/list.jsp" %>
+    </div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.4.0
         </div>
-    </div>
-    <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <ul class="layui-nav layui-nav-tree site-demo-nav">
-                <%--<li class="layui-nav-item layui-this"><a href="javascript:;" onclick="aa('test.jsp')">后台首页</a></li>--%>
-                <li class="layui-nav-item">
-                    <a class="javascript:;" href="javascript:;">组件示例</a>
-                    <dl class="layui-nav-child">
-                        <dd class="">
-                            <a href="javascript:;" onclick="aa('form.jsp')">
-                                info页面
-                            </a>
-                        </dd>
-                        <dd class="">
-                            <a href="javascript:;" onclick="aa('test.jsp')">
-                                list页面
-                            </a>
-                        </dd>
-                    </dl>
-                </li>
-                <%--<li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>--%>
-            </ul>
-        </div>
-    </div>
+        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
 
-    <div class="layui-body" id="main-content" style="border-left: 5px solid #009688;bottom:0px">
-
-    </div>
+    <%--<div class="control-sidebar-bg"></div>--%>
 </div>
-
-<div class="site-tree-mobile layui-hide">
-    <i class="layui-icon">&#xe602;</i>
-</div>
-<div class="site-mobile-shade"></div>
-
+<!-- ./wrapper -->
 
 <%@ include file="shared/importJs.jsp" %>
-<script type="text/javascript" src="${staticPath }/commons/js/jquery.min.js"></script>
-<script type="text/javascript">
-    //手机设备的简单适配
-    var treeMobile = $('.site-tree-mobile')
-        ,shadeMobile = $('.site-mobile-shade')
-
-    treeMobile.on('click', function(){
-        $('body').addClass('site-mobile');
+<script>
+    $(document).ajaxStart(function () {
+        Pace.restart()
     });
-
-    shadeMobile.on('click', function(){
-        $('body').removeClass('site-mobile');
-    });
-//    $(function(){
-//        $.get('test.jsp', function(data) {
-//            $('#main-content').html(data);
-//        });
-//    });
-    function aa(url) {
-        if (url != null && url != 'javascript:;') {
-            $.get(url, function(data) {
-
-                $('#main-content').html(data);
-            });
-            $('body').removeClass('site-mobile');
-        }
-    }
+    $(document).ready(function () {
+        //一级菜单点击
+        $('.sidebar-menu > li > a.myselect').click(function (e) {
+            e.preventDefault();
+            $('.sidebar-menu').find('.active').removeClass('active');
+            var menu_open = $('.sidebar-menu').find('.menu-open');
+            menu_open.children('ul').css('display', 'none');
+            menu_open.removeClass('menu-open');
+            $(this).parent().addClass('active');
+            $(this).parents('.sidebar-open').removeClass('sidebar-open');
+            var url = this.href;
+            if (url != null && url != 'javascript:;') {
+                $.ajax({
+                    url: url, success: function (result) {
+                        $('#main-content').html(result)
+                    }
+                })
+            }
+        });
+        //二级子菜单点击
+        $('.sidebar-menu ul a').click(function (e) {
+            e.preventDefault();
+            $(this).parents('li').addClass('active');
+            $(this).parents('li').siblings('.active').removeClass('active');
+            $(this).parents('.sidebar-open').removeClass('sidebar-open');
+            var url = this.href;
+            if (url != null && url != 'javascript:;') {
+//                $.get(url, function(data) {
+//                    $('#main-content').html(data);
+//                });
+                $.ajax({
+                    url: url, success: function (result) {
+                        $('#main-content').html(result)
+                    }
+                })
+            }
+        });
+        //$('.sidebar-menu').tree()
+    })
 </script>
-
 </body>
 </html>
