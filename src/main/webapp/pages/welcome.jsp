@@ -193,7 +193,7 @@
                     </div>
                 </div>
                 <div class="box-body border-radius-none">
-                    <canvas id="pieChart" style="height:250px"></canvas>
+                    <div id="pieChart" style="height:400px"></div>
                 </div>
             </div>
             <!-- /.box -->
@@ -237,9 +237,9 @@
         <!-- right col -->
     </div>
 </section>
-<script src="${staticPath}/layui/layui.js"></script>
 <script src="${staticPath}/adminLTE/jquery/jquery.min.js"></script>
-<%--<script src="${staticPath}/adminLTE/chart/Chart.min.js"></script>--%>
+<script src="${staticPath}/adminLTE/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script src="${staticPath}/layui/layui.js"></script>
 <script>
     layui.config({
         dir: '${staticPath }/layui/'
@@ -248,7 +248,49 @@
         var table = layui.table;
 
     });
-
+    $(function () {
+        $('#pieChart').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '2014 某网站上各个浏览器的访问量占比'
+            },
+            tooltip: {
+                headerFormat: '{series.name}<br>',
+                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '浏览器访问量占比',
+                data: [
+                    ['Firefox',   45.0],
+                    ['IE',       26.8],
+                    {
+                        name: 'Chrome',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Safari',    8.5],
+                    ['Opera',     6.2],
+                    ['其他',   0.7]
+                ]
+            }]
+        });
+    });
 
 </script>
 </body>
